@@ -45,3 +45,10 @@ def set_vehicle_status(vehicles: list, vehicle_id: str, status: str) -> dict: #?
             v["status"] = status
             return v
     raise ValueError("Vehicle not found.")
+
+def list_available_vehicles(vehicles: list, rental_dates: tuple[str, str], vehicle_type: str | None = None) -> list:
+    available_vehicles = []
+    for v in vehicles:
+        if v["status"] == "available" and (vehicle_type is None or v["type"] == vehicle_type):
+           available_vehicles.append(v)
+    return available_vehicles
