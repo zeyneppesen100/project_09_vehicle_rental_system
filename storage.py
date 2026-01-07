@@ -3,14 +3,20 @@ import os
 from datetime import datetime
 
 def load_state(base_dir):
-    with open(f"{base_dir}/vehicles.json", "r", encoding="utf-8") as f:
-        vehicles = json.load(f)
-    with open(f"{base_dir}/customers.json", "r", encoding="utf-8") as f:
-        customers = json.load(f)
-    with open(f"{base_dir}/reservations.json", "r", encoding="utf-8") as f:
-        reservations = json.load(f)
-    return vehicles, customers, reservations
+    os.makedirs(base_dir, exist_ok=True)
+    def load_file(filename):
+        path = f"{base_dir}/{filename}"
+        if not os.path.exists(path):
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump([], f)
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
 
+    vehicles = load_file("vehicles.json")
+    customers = load_file("customers.json")
+    reservations = load_file("reservations.json")
+
+    return vehicles, customers, reservations
 def save_state(base_dir, vehicles, customers, reservations):
     with open(f"{base_dir}/vehicles.json", "w", encoding="utf-8") as f:
         json.dump(vehicles, f, indent=4)
