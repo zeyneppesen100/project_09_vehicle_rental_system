@@ -8,7 +8,7 @@ DATA = "data"
 BACKUP = "backups"
 def main():
     vehicles, customers, reservations = load_state(DATA)
-    while True:
+    while False:
         print("\n--- Vehicle Rental System ---")
         print("1. Add vehicle")
         print("2. Add customer")
