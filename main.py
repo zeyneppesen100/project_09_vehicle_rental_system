@@ -1,5 +1,5 @@
 from vehicles import (add_vehicle, update_vehicle, set_vehicle_status, list_available_vehicles)
-from customers import (load_customers, save_customers, register_customer,authenticate_customer,update_customer_profile)
+from customers import (load_customers, save_customers, register_customer,authenticate_customer,update_customer_profile, add_customer)
 from reservations import (create_reservation, complete_rental, cancel_reservation, check_availability, calculate_invoice)
 from reports import (utilization_report,revenue_summary,upcoming_returns, export_report)
 from storage import (load_state, save_state, backup_state)
