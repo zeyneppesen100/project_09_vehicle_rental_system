@@ -37,5 +37,13 @@ def update_customer_profile(customers: list, customer_id: str, updates: dict) ->
             return x
     raise ValueError("customer not found")
 
+def add_customer(customers, name, email):
+    customer = {
+        "id": len(customers) + 1,
+        "name": name,
+        "email": email
+    }
+    customers.append(customer)
+    return customer
 
 
