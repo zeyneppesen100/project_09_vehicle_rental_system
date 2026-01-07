@@ -12,7 +12,7 @@ def save_customers(path: str,customers: list) -> None:
     with open(path, "w",encoding="utf-8") as f:
         json.dump(customers, f)
 
-def register_customer(customer: list, profile: dict) -> dict:
+def register_customer(customers: list, profile: dict) -> dict:
     customer = {
         "id": str(uuid.uuid4()),
         "name": profile["name"],
