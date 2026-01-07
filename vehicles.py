@@ -2,7 +2,7 @@ import json
 import uuid
 def load_vehicles(path:str) -> list:
     try:
-        with open(path, "r", encoding="uts-8") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except print("file error"):
         return none
